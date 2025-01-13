@@ -55,7 +55,7 @@ export default function TaskForm({ onAdd, onUpdate, taskToEdit }) {
       />
       <Select onValueChange={(value) => setStatus(value)}>
   <SelectTrigger className="w-[180px]">
-    <SelectValue placeholder="Theme" />
+    <SelectValue placeholder="Status" />
   </SelectTrigger>
   <SelectContent>
     <SelectItem value="light">Pending</SelectItem>
