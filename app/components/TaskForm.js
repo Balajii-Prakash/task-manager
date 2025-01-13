@@ -6,8 +6,8 @@ import {
     Select,
     SelectContent,
     SelectItem,
-    SelectTrigger,
-    SelectValue,
+    SelectTrigger
+    
   } from "@/components/ui/select"
   
 
@@ -64,7 +64,7 @@ export default function TaskForm({ onAdd, onUpdate, taskToEdit }) {
         </SelectContent>
       </Select>
       
-      <Button variant="" className=" w-full text-orange-800 p-2 rounded">
+      <Button variant="" className=" w-full text-white p-2 rounded">
         {taskToEdit ? 'Update Task' : 'Add Task'}
       </Button>
     </form>
