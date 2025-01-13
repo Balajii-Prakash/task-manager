@@ -6,8 +6,9 @@ import {
     Select,
     SelectContent,
     SelectItem,
-    SelectTrigger
-    
+    SelectTrigger,
+    SelectValue
+
     
   } from "@/components/ui/select"
   
@@ -52,18 +53,21 @@ export default function TaskForm({ onAdd, onUpdate, taskToEdit }) {
         className="w-full p-2 border rounded"
         required
       />
-      <Select
-        value={status}
-        onChange={(e) => setStatus(e.target.value)}
-        className="w-full p-2 border rounded"
-      >
-        <SelectTrigger>Status</SelectTrigger>
-        <SelectContent>
-        <SelectItem value="pending">Pending</SelectItem>
-        <SelectItem value="in-progress">In Progress</SelectItem>
-        <SelectItem value="completed">Completed</SelectItem>
-        </SelectContent>
-      </Select>
+      <Select onValueChange={(value) => setStatus(value)}>
+  <SelectTrigger className="w-[180px]">
+    <SelectValue placeholder="Theme" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="light">Pending</SelectItem>
+    <SelectItem value="dark">In-Progress</SelectItem>
+    <SelectItem value="system">Completed</SelectItem>
+  </SelectContent>
+</Select>
+
+      
+
+      
+
       
       <Button variant="" className=" w-full text-white p-2 rounded">
         {taskToEdit ? 'Update Task' : 'Add Task'}
