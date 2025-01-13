@@ -17,7 +17,7 @@ type Task = {
 
 export default function Home() {
   
-  const [taskToEdit, setTaskToEdit] = useState(null);
+  const [taskToEdit, setTaskToEdit] = useState<Task | null>(null);
   const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function Home() {
     fetchTasks();
   }, []);
 
-  const handleAddTask = async (newTask: any) => {
+  const handleAddTask = async (newTask:  Omit<Task, 'id'>) => {
     const res = await fetch('/api/tasks', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -40,7 +40,7 @@ export default function Home() {
     setTasks([...tasks, addedTask]);
   };
 
-  const handleUpdateTask = async (updatedTask: any) => {
+  const handleUpdateTask = async (updatedTask: Task) => {
     const res = await fetch('/api/tasks', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
